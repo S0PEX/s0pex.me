@@ -10,6 +10,7 @@ import ProjectCard from '@/components/ui/ProjectCard.astro'
 import Section from '@/components/ui/Section.astro'
 import SkillLayout from '@/components/ui/SkillLayout.astro'
 import Base from '@/layouts/Base.astro'
+import ProjectSkills from '@/components/ui/ProjectSkills.astro'
 
 const languages = ['C++', 'C#', 'Java', 'Python', 'JavaScript', 'TypeScript']
 const frontend = ['Angular', 'React', 'Svelte']
@@ -104,7 +105,19 @@ const others = ['Docker', 'Podman', 'Portainer', 'Kubernetes', 'Proxmox VE']
           backend. Used Angular Material for responsive design and employed NgRx
           Component Store for effective state management, implementing various
           data masks. Additionally, I was involved in managing the rollout of
-          the frontend application onto an Azure Kubernetes Cluster using Helm.
+          the frontend application onto an Azure Kubernetes Service (AKS) using
+          Helm.
+          <ProjectSkills
+            slot="tags"
+            skills={[
+              'Angular 18',
+              'Spring Boot',
+              'Material UI',
+              'NgRx',
+              'Azure Kubernetes Service (AKS)',
+              'Helm',
+            ]}
+          />
         </ProjectCard>
         <ProjectCard heading="Signal Data Platform (SDP) - Commercial Project">
           Since joining <Link href="https://infolytics.com/">Infolytics AG</Link
@@ -126,6 +139,19 @@ const others = ['Docker', 'Podman', 'Portainer', 'Kubernetes', 'Proxmox VE']
           storage, and data export for analytical purposes. Since completing my bachelor's
           degree, I have been the primary person handling all feature requests and
           bug fixes, as the project is now in maintenance mode.
+          <ProjectSkills
+            slot="tags"
+            skills={[
+              'C++',
+              'Boost',
+              'Boost.Asio',
+              'unixODBC',
+              'Java',
+              'JAX-RS',
+              'jQuery',
+              'IoT',
+            ]}
+          />
         </ProjectCard>
         <ProjectCard heading="AIxCell Project - Fraunhofer IPT">
           Bachelor's Thesis: Migrated an existing AutoML pipeline from{' '}
@@ -145,6 +171,20 @@ const others = ['Docker', 'Podman', 'Portainer', 'Kubernetes', 'Proxmox VE']
           clusters and developed RESTful services using NestJS. Additionally, I enhanced
           the ReactJS application to improve user interaction and ensure seamless
           integration with the new backend services.
+
+          <ProjectSkills
+            slot="tags"
+            skills={[
+              'AutoML',
+              'Oracle Cloud (OCI)',
+              'Kubernetes (K8S)',
+              'Oracle Kubernetes Engine (OKE)',
+              'NestJS',
+              'ReactJS',
+              'TypeScript',
+              'RESTful Services',
+            ]}
+          />
         </ProjectCard>
       </div>
     </Section>
