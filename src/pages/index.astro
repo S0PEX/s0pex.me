@@ -11,6 +11,7 @@ import Section from '@/components/ui/Section.astro'
 import SkillLayout from '@/components/ui/SkillLayout.astro'
 import Base from '@/layouts/Base.astro'
 import ProjectSkills from '@/components/ui/ProjectSkills.astro'
+import Hero from '@/partials/Hero.astro'
 
 const languages = ['C++', 'C#', 'Java', 'Python', 'JavaScript', 'TypeScript']
 const frontend = ['Angular', 'React', 'Svelte']
@@ -29,39 +30,7 @@ const others = ['Docker', 'Podman', 'Portainer', 'Kubernetes', 'Proxmox VE']
 
 <Base title="Home">
   <div class="flex w-full flex-col gap-y-10">
-    <HeroSection>
-      <Image
-        src={avatar}
-        alt="profile photo"
-        class="h-60 w-auto rounded-full bg-[#FFBE98] p-1"
-        loading="eager"
-      />
-      <h1 class="text-3xl font-bold">Artur Komaristych</h1>
-      <div class="flex flex-wrap justify-center gap-x-7 gap-y-3">
-        <Label title="Infolytics AG">
-          <Icon slot="icon" name="mdi:work" size={20} />
-        </Label>
-        <Label title="Cologne">
-          <Icon slot="icon" name="mdi:location" size={20} />
-        </Label>
-        <Label
-          title="Connect on Linkedin"
-          as="a"
-          href="https://de.linkedin.com/in/artur-komaristych-89b623171"
-          target="_blank"
-        >
-          <Icon slot="icon" name="mdi:linkedin" size={25} />
-        </Label>
-        <Label
-          title="GitHub"
-          as="a"
-          href="https://github.com/S0PEX"
-          target="_blank"
-        >
-          <Icon slot="icon" name="mdi:github" size={25} />
-        </Label>
-      </div>
-    </HeroSection>
+    <Hero />
 
     <Section title="About">
       <p class="text-muted-foreground">

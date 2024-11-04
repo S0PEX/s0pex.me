@@ -1,11 +1,17 @@
 ---
+import { HeroSection } from '@/components/ui/HeroSection'
+import { Image } from 'astro:assets'
+import avatar from '@/assets/images/avatar.jpg'
 import Section from '@/components/ui/Section.astro'
 import TimelineCard from '@/components/ui/TimelineCard.astro'
 import Base from '@/layouts/Base.astro'
+import Hero from '@/partials/Hero.astro'
 ---
 
 <Base title="Timeline">
-  <div class="flex flex-col space-y-4 px-4">
+  <div class="flex w-full flex-col gap-y-10">
+    <Hero />
+
     <Section title="Experience">
       <TimelineCard
         company="Infolytics AG"
