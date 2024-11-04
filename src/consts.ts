@@ -4,4 +4,5 @@
 export const SITE_TITLE = 'Artur Komaristych'
 export const SITE_DESCRIPTION =
   "Passionate software developer pursuing a master's in computer science at the University of Cologne. " +
-  'I enjoy solving complex problems and staying active through badminton, bouldering, and climbing. Discover more about my skills and experiences'
+  'I enjoy solving complex problems and staying active through badminton, bouldering, and climbing.' +
+  'Discover more about my skills and experiences on my website!'
