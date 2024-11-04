@@ -23,133 +23,131 @@ const others = ['Docker', 'Podman', 'Portainer', 'Kubernetes', 'Proxmox VE']
 ---
 
 <Base title="Home">
-  <div class="flex w-full flex-col gap-y-10">
-    <Hero />
+  <Hero />
 
-    <Section title="About">
-      <p class="text-muted-foreground">
-        Welcome to my personal homepage! I’m a passionate software developer
-        currently pursuing my master's in computer science at the{' '}
-        <Link href="https://cs.uni-koeln.de/en/lehre-studium/msc-informatik"
-          >University of Cologne</Link
-        >
-        . With a strong foundation from my studies at{' '}
+  <Section title="About">
+    <p class="text-muted-foreground">
+      Welcome to my personal homepage! I’m a passionate software developer
+      currently pursuing my master's in computer science at the{' '}
+      <Link href="https://cs.uni-koeln.de/en/lehre-studium/msc-informatik"
+        >University of Cologne</Link
+      >
+      . With a strong foundation from my studies at{' '}
+      <Link
+        href="https://www.rwth-aachen.de/cms/root/studium/vor-dem-studium/studiengaenge/liste-aktuelle-studiengaenge/studiengangbeschreibung/~bnzs/informatik-b-sc-/?lidx=1"
+      >
+        RWTH Aachen
+      </Link>
+      , I enjoy tackling complex problems and creating innovative solutions at
+      <Link href="https://infolytics.com/">Infolytics AG</Link>. When I’m not
+      coding, you can find me on the badminton court, bouldering, or climbing. I
+      thrive on challenges, both in my professional and personal life. Check out
+      my timeline to discover more about my skills and experiences!
+    </p>
+  </Section>
+
+  <Section title="Skills">
+    <SkillLayout title="Languages" skills={languages} />
+    <SkillLayout title="Frontend" skills={frontend} />
+    <SkillLayout title="Backend" skills={backend} />
+    <SkillLayout title="Cloud Providers" skills={cloud} />
+    <SkillLayout title="Others Technologies" skills={others} />
+  </Section>
+
+  <Section title="Projects">
+    <div class="flex w-full flex-col gap-y-4">
+      <ProjectCard
+        href="https://www.google.com"
+        heading="smARC - Commercial Project"
+      >
+        Contributed to the smARC frontend application for <Link
+          href="https://hasenkamp.com/de/archivdepot/"
+          >Hasenkamp Archiv Depot</Link
+        >, utilizing Angular 18 for the frontend and Spring Boot for the
+        backend. Used Angular Material for responsive design and employed NgRx
+        Component Store for effective state management, implementing various
+        data masks. Additionally, I was involved in managing the rollout of the
+        frontend application onto an Azure Kubernetes Service (AKS) using Helm.
+        <ProjectSkills
+          slot="tags"
+          skills={[
+            'Angular 18',
+            'Spring Boot',
+            'Material UI',
+            'NgRx',
+            'Azure Kubernetes Service (AKS)',
+            'Helm',
+          ]}
+        />
+      </ProjectCard>
+      <ProjectCard heading="Signal Data Platform (SDP) - Commercial Project">
+        Since joining <Link href="https://infolytics.com/">Infolytics AG</Link>{
+          ' '
+        }
+        in 2018, I have worked on the Signal Data Platform (SDP), an IoT solution
+        for managing high-volume sensor data. This project is developed in collaboration
+        with the{' '}
         <Link
-          href="https://www.rwth-aachen.de/cms/root/studium/vor-dem-studium/studiengaenge/liste-aktuelle-studiengaenge/studiengangbeschreibung/~bnzs/informatik-b-sc-/?lidx=1"
+          href="https://www.dlr.de/en/dlr/locations-and-offices/braunschweig"
         >
-          RWTH Aachen
+          German Aerospace Center (DLR)
+        </Link>{' '}
+        for the{' '}
+        <Link href="https://www.forschungsverbund-windenergie.de/en">
+          Deutsche Forschungsplattform für Windenergie (DFWIND)
+        </Link>{' '}
+        research project. I contributed to both the C++ and Java backend as well
+        as the frontend using jQuery, enabling real-time data access, aggregation
+        storage, and data export for analytical purposes. Since completing my bachelor's
+        degree, I have been the primary person handling all feature requests and
+        bug fixes, as the project is now in maintenance mode.
+        <ProjectSkills
+          slot="tags"
+          skills={[
+            'C++',
+            'Boost',
+            'Boost.Asio',
+            'unixODBC',
+            'Java',
+            'JAX-RS',
+            'jQuery',
+            'IoT',
+          ]}
+        />
+      </ProjectCard>
+      <ProjectCard heading="AIxCell Project - Fraunhofer IPT">
+        Bachelor's Thesis: Migrated an existing AutoML pipeline from{' '}
+        <Link href="https://www.ipt.fraunhofer.de/">Fraunhofer IPT</Link> to
+        <Link href="https://www.oracle.com/cloud/">
+          Oracle Cloud Infrastructure (OCI)
+        </Link>{' '}
+        to a fully managed Kubernetes cluster {' '}
+        <Link
+          href="https://www.oracle.com/cloud/cloud-native/kubernetes-engine/"
+        >
+          "Container Engine for Kubernetes" (OKE)
         </Link>
-        , I enjoy tackling complex problems and creating innovative solutions at
-        <Link href="https://infolytics.com/">Infolytics AG</Link>. When I’m not
-        coding, you can find me on the badminton court, bouldering, or climbing.
-        I thrive on challenges, both in my professional and personal life. Check
-        out my timeline to discover more about my skills and experiences!
-      </p>
-    </Section>
+        . This project focused on automating the analysis of biomedical image data,
+        allowing experts to efficiently train and deploy deep learning (DL) solutions.
+        I created a custom solution for executing AutoML pipelines within Kubernetes
+        clusters and developed RESTful services using NestJS. Additionally, I enhanced
+        the ReactJS application to improve user interaction and ensure seamless integration
+        with the new backend services.
 
-    <Section title="Skills">
-      <SkillLayout title="Languages" skills={languages} />
-      <SkillLayout title="Frontend" skills={frontend} />
-      <SkillLayout title="Backend" skills={backend} />
-      <SkillLayout title="Cloud Providers" skills={cloud} />
-      <SkillLayout title="Others" skills={others} />
-    </Section>
-
-    <Section title="Projects">
-      <div class="flex w-full flex-col gap-y-4">
-        <ProjectCard
-          href="https://www.google.com"
-          heading="smARC - Commercial Project"
-        >
-          Contributed to the smARC frontend application for <Link
-            href="https://hasenkamp.com/de/archivdepot/"
-            >Hasenkamp Archiv Depot</Link
-          >, utilizing Angular 18 for the frontend and Spring Boot for the
-          backend. Used Angular Material for responsive design and employed NgRx
-          Component Store for effective state management, implementing various
-          data masks. Additionally, I was involved in managing the rollout of
-          the frontend application onto an Azure Kubernetes Service (AKS) using
-          Helm.
-          <ProjectSkills
-            slot="tags"
-            skills={[
-              'Angular 18',
-              'Spring Boot',
-              'Material UI',
-              'NgRx',
-              'Azure Kubernetes Service (AKS)',
-              'Helm',
-            ]}
-          />
-        </ProjectCard>
-        <ProjectCard heading="Signal Data Platform (SDP) - Commercial Project">
-          Since joining <Link href="https://infolytics.com/">Infolytics AG</Link
-          >{' '}
-          in 2018, I have worked on the Signal Data Platform (SDP), an IoT solution
-          for managing high-volume sensor data. This project is developed in collaboration
-          with the{' '}
-          <Link
-            href="https://www.dlr.de/en/dlr/locations-and-offices/braunschweig"
-          >
-            German Aerospace Center (DLR)
-          </Link>{' '}
-          for the{' '}
-          <Link href="https://www.forschungsverbund-windenergie.de/en">
-            Deutsche Forschungsplattform für Windenergie (DFWIND)
-          </Link>{' '}
-          research project. I contributed to both the C++ and Java backend as well
-          as the frontend using jQuery, enabling real-time data access, aggregation
-          storage, and data export for analytical purposes. Since completing my bachelor's
-          degree, I have been the primary person handling all feature requests and
-          bug fixes, as the project is now in maintenance mode.
-          <ProjectSkills
-            slot="tags"
-            skills={[
-              'C++',
-              'Boost',
-              'Boost.Asio',
-              'unixODBC',
-              'Java',
-              'JAX-RS',
-              'jQuery',
-              'IoT',
-            ]}
-          />
-        </ProjectCard>
-        <ProjectCard heading="AIxCell Project - Fraunhofer IPT">
-          Bachelor's Thesis: Migrated an existing AutoML pipeline from{' '}
-          <Link href="https://www.ipt.fraunhofer.de/">Fraunhofer IPT</Link> to
-          <Link href="https://www.oracle.com/cloud/">
-            Oracle Cloud Infrastructure (OCI)
-          </Link>{' '}
-          to a fully managed Kubernetes cluster {' '}
-          <Link
-            href="https://www.oracle.com/cloud/cloud-native/kubernetes-engine/"
-          >
-            "Container Engine for Kubernetes" (OKE)
-          </Link>
-          . This project focused on automating the analysis of biomedical image data,
-          allowing experts to efficiently train and deploy deep learning (DL) solutions.
-          I created a custom solution for executing AutoML pipelines within Kubernetes
-          clusters and developed RESTful services using NestJS. Additionally, I enhanced
-          the ReactJS application to improve user interaction and ensure seamless
-          integration with the new backend services.
-
-          <ProjectSkills
-            slot="tags"
-            skills={[
-              'AutoML',
-              'Oracle Cloud (OCI)',
-              'Kubernetes (K8S)',
-              'Oracle Kubernetes Engine (OKE)',
-              'NestJS',
-              'ReactJS',
-              'TypeScript',
-              'RESTful Services',
-            ]}
-          />
-        </ProjectCard>
-      </div>
-    </Section>
-  </div>
+        <ProjectSkills
+          slot="tags"
+          skills={[
+            'AutoML',
+            'Oracle Cloud (OCI)',
+            'Kubernetes (K8S)',
+            'Oracle Kubernetes Engine (OKE)',
+            'NestJS',
+            'ReactJS',
+            'TypeScript',
+            'RESTful Services',
+          ]}
+        />
+      </ProjectCard>
+    </div>
+  </Section>
 </Base>
