@@ -19,7 +19,29 @@ const backend = [
   'NestJS',
 ]
 const cloud = ['Oracle Cloud', 'Google Compute Engine']
-const others = ['Docker', 'Podman', 'Portainer', 'Kubernetes', 'Proxmox VE']
+const containers = [
+  'Docker',
+  'Podman',
+  'Portainer',
+  'Kubernetes',
+  'Proxmox VE',
+  'Helm',
+  'Ansible',
+  'Terraform',
+]
+const others = [
+  'GitLab',
+  'GitHub',
+  'Bitbucket',
+  'GitLab CI',
+  'GitHub Actions',
+  'Jira',
+  'Confluence',
+  'Artifactory',
+  'Gradle',
+  'CMake',
+  'vcpkg',
+]
 ---
 
 <Base title="Home">
@@ -51,23 +73,24 @@ const others = ['Docker', 'Podman', 'Portainer', 'Kubernetes', 'Proxmox VE']
     <SkillLayout title="Frontend" skills={frontend} />
     <SkillLayout title="Backend" skills={backend} />
     <SkillLayout title="Cloud Providers" skills={cloud} />
+    <SkillLayout
+      title="Containerization and Orchestration"
+      skills={containers}
+    />
     <SkillLayout title="Others Technologies" skills={others} />
   </Section>
 
   <Section title="Projects">
     <div class="flex w-full flex-col gap-y-4">
-      <ProjectCard
-        href="https://www.google.com"
-        heading="smARC - Commercial Project"
-      >
-        Contributed to the smARC frontend application for <Link
-          href="https://hasenkamp.com/de/archivdepot/"
-          >Hasenkamp Archiv Depot</Link
-        >, utilizing Angular 18 for the frontend and Spring Boot for the
-        backend. Used Angular Material for responsive design and employed NgRx
-        Component Store for effective state management, implementing various
-        data masks. Additionally, I was involved in managing the rollout of the
-        frontend application onto an Azure Kubernetes Service (AKS) using Helm.
+      <ProjectCard heading="Data Warehouse Frontend - Commercial Project">
+        Participated in migrating a C# desktop application to a web-based
+        platform, using Angular 18 for the frontend and Spring Boot for the
+        backend. Developed reusable components and migrated legacy data entry
+        forms to the new platform, implementing backend endpoints to support
+        these forms. Leveraged Angular Material for responsive design and
+        employed NgRx Component Store for efficient state management.
+        Additionally, contributed to deploying the frontend on Azure Kubernetes
+        Service (AKS) with Helm, ensuring a smooth rollout process.
         <ProjectSkills
           slot="tags"
           skills={[
