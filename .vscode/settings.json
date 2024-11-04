@@ -20,6 +20,7 @@
     "layouts",
     "pages",
     "deps",
-    "public"
+    "public",
+    "consts"
   ]
 }
