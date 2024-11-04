@@ -1,50 +1,115 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { Image } from 'astro:assets'
+import { Icon } from 'astro-icon/components'
+
+import avatar from '@/assets/images/avatar.jpg'
+import { HeroSection } from '@/components/ui/HeroSection'
+import Label from '@/components/ui/Label.astro'
+import { Link } from '@/components/ui/Link'
+import ProjectCard from '@/components/ui/ProjectCard.astro'
+import Section from '@/components/ui/Section.astro'
+import SkillLayout from '@/components/ui/SkillLayout.astro'
+import Base from '@/layouts/Base.astro'
+
+const languages = ['C++', 'C#', 'Java', 'Python', 'JavaScript', 'TypeScript']
+const frontend = ['Angular', 'React', 'Svelte']
+const backend = [
+  'Boost',
+  'unixODBC',
+  'ASP.NET',
+  'Entity Framework',
+  'Spring Boot',
+  'Hibernate',
+  'NestJS',
+]
+const cloud = ['Oracle Cloud', 'Google Compute Engine']
+const others = ['Docker', 'Podman', 'Portainer', 'Kubernetes', 'Proxmox VE']
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+<Base title="Home">
+  <div class="flex w-full flex-col gap-y-10">
+    <HeroSection>
+      <Image
+        src={avatar}
+        alt="profile photo"
+        class="h-60 w-auto rounded-full bg-[#FFBE98] p-1"
+        loading="eager"
+      />
+      <h1 class="text-3xl font-bold">Artur Komaristych</h1>
+      <div class="flex flex-wrap justify-center gap-x-7 gap-y-3">
+        <Label title="Infolytics AG">
+          <Icon slot="icon" name="mdi:work" size={20} />
+        </Label>
+        <Label title="Cologne">
+          <Icon slot="icon" name="mdi:location" size={20} />
+        </Label>
+        <Label
+          title="Connect on Linkedin"
+          as="a"
+          href="https://de.linkedin.com/in/artur-komaristych-89b623171"
+          target="_blank"
+        >
+          <Icon slot="icon" name="mdi:linkedin" size={25} />
+        </Label>
+        <Label
+          title="GitHub"
+          as="a"
+          href="https://github.com/S0PEX"
+          target="_blank"
+        >
+          <Icon slot="icon" name="mdi:github" size={25} />
+        </Label>
+      </div>
+    </HeroSection>
+
+    <Section title="About">
+      <p class="text-muted-foreground">
+        Welcome to my personal homepage! I’m a passionate software developer
+        currently pursuing my master's in computer science at the{' '}
+        <Link href="https://cs.uni-koeln.de/en/lehre-studium/msc-informatik"
+          >University of Cologne</Link
+        >
+        . With a strong foundation from my studies at{' '}
+        <Link
+          href="https://www.rwth-aachen.de/cms/root/studium/vor-dem-studium/studiengaenge/liste-aktuelle-studiengaenge/studiengangbeschreibung/~bnzs/informatik-b-sc-/?lidx=1"
+        >
+          RWTH Aachen
+        </Link>
+        , I enjoy tackling complex problems and creating innovative solutions at
+        <Link href="https://infolytics.com/">Infolytics AG</Link>. When I’m not
+        coding, you can find me on the badminton court, bouldering, or climbing.
+        I thrive on challenges, both in my professional and personal life. Check
+        out my timeline to discover more about my skills and experiences!
+      </p>
+    </Section>
+
+    <Section title="Skills">
+      <SkillLayout title="Languages" skills={languages} />
+      <SkillLayout title="Frontend" skills={frontend} />
+      <SkillLayout title="Backend" skills={backend} />
+      <SkillLayout title="Cloud Providers" skills={cloud} />
+      <SkillLayout title="Others" skills={others} />
+    </Section>
+
+    <Section title="Projects">
+      <div class="flex flex-col gap-y-3 sm:flex-row sm:gap-x-3 sm:gap-y-0">
+        <ProjectCard
+          href="https://www.google.com"
+          heading="Consectetur"
+          subheading="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+          imagePath="/src/assets/images/coming-soon.png"
+          altText="Example"
+          class="w-full sm:w-1/2"
+        />
+        <ProjectCard
+          as="div"
+          heading="Coming soon..."
+          subheading=""
+          imagePath="/src/assets/images/coming-soon.png"
+          altText="Lorem, ipsum dolor sit"
+          class="w-full sm:w-1/2"
+        />
+      </div>
+    </Section>
+  </div>
+</Base>

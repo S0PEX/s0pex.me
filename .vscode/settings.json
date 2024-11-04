@@ -13,5 +13,11 @@
   "[astro]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "conventionalCommits.scopes": ["fonts", "assets", "components", "layouts"]
+  "conventionalCommits.scopes": [
+    "fonts",
+    "assets",
+    "components",
+    "layouts",
+    "pages"
+  ]
 }
