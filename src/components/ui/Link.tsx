@@ -5,7 +5,7 @@ type Props = {
 
 const Link = ({ href, children }: Props) => {
   return (
-    <a className="underline hover:text-cyan-700 hover:underline" href={href}>
+    <a className=" hover:text-cyan-700 hover:underline" href={href}>
       {children}
     </a>
   )
