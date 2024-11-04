@@ -19,6 +19,7 @@
     "components",
     "layouts",
     "pages",
-    "deps"
+    "deps",
+    "public"
   ]
 }
