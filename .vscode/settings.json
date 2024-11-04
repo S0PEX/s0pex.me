@@ -22,5 +22,8 @@
     "deps",
     "public",
     "consts"
-  ]
+  ],
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  }
 }
