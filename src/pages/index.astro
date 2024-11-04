@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets'
 import { Icon } from 'astro-icon/components'
 
-import avatar from '@/assets/images/avatar.webp'
+import avatar from '@/assets/images/avatar.jpg'
 import { HeroSection } from '@/components/ui/HeroSection'
 import Label from '@/components/ui/Label.astro'
 import { Link } from '@/components/ui/Link'
@@ -92,23 +92,60 @@ const others = ['Docker', 'Podman', 'Portainer', 'Kubernetes', 'Proxmox VE']
     </Section>
 
     <Section title="Projects">
-      <div class="flex flex-col gap-y-3 sm:flex-row sm:gap-x-3 sm:gap-y-0">
+      <div class="grid grid-cols-1 gap-y-3 sm:flex-row sm:gap-x-3 sm:gap-y-0">
         <ProjectCard
           href="https://www.google.com"
-          heading="Consectetur"
-          subheading="Lorem ipsum dolor sit amet consectetur adipisicing elit."
-          imagePath="/src/assets/images/coming-soon.png"
-          altText="Example"
-          class="w-full sm:w-1/2"
-        />
-        <ProjectCard
-          as="div"
-          heading="Coming soon..."
-          subheading=""
-          imagePath="/src/assets/images/coming-soon.png"
-          altText="Lorem, ipsum dolor sit"
-          class="w-full sm:w-1/2"
-        />
+          heading="smARC - Commercial Project"
+        >
+          Contributed to the smARC frontend application for <Link
+            href="https://hasenkamp.com/de/archivdepot/"
+            >Hasenkamp Archiv Depot</Link
+          >, utilizing Angular 18 for the frontend and Spring Boot for the
+          backend. Used Angular Material for responsive design and employed NgRx
+          Component Store for effective state management, implementing various
+          data masks. Additionally, I was involved in managing the rollout of
+          the frontend application onto an Azure Kubernetes Cluster using Helm.
+        </ProjectCard>
+        <ProjectCard heading="Signal Data Platform (SDP) - Commercial Project">
+          Since joining <Link href="https://infolytics.com/">Infolytics AG</Link
+          >{' '}
+          in 2018, I have worked on the Signal Data Platform (SDP), an IoT solution
+          for managing high-volume sensor data. This project is developed in collaboration
+          with the{' '}
+          <Link
+            href="https://www.dlr.de/en/dlr/locations-and-offices/braunschweig"
+          >
+            German Aerospace Center (DLR)
+          </Link>{' '}
+          for the{' '}
+          <Link href="https://www.forschungsverbund-windenergie.de/en">
+            Deutsche Forschungsplattform für Windenergie (DFWIND)
+          </Link>{' '}
+          research project. I contributed to both the C++ and Java backend as well
+          as the frontend using jQuery, enabling real-time data access, aggregation
+          storage, and data export for analytical purposes. Since completing my bachelor's
+          degree, I have been the primary person handling all feature requests and
+          bug fixes, as the project is now in maintenance mode.
+        </ProjectCard>
+        <ProjectCard heading="AIxCell Project - Fraunhofer IPT">
+          Bachelor's Thesis: Migrated an existing AutoML pipeline from{' '}
+          <Link href="https://www.ipt.fraunhofer.de/">Fraunhofer IPT</Link> to
+          <Link href="https://www.oracle.com/cloud/">
+            Oracle Cloud Infrastructure (OCI)
+          </Link>{' '}
+          to a fully managed Kubernetes cluster {' '}
+          <Link
+            href="https://www.oracle.com/cloud/cloud-native/kubernetes-engine/"
+          >
+            "Container Engine for Kubernetes" (OKE)
+          </Link>
+          . This project focused on automating the analysis of biomedical image data,
+          allowing experts to efficiently train and deploy deep learning (DL) solutions.
+          I created a custom solution for executing AutoML pipelines within Kubernetes
+          clusters and developed RESTful services using NestJS. Additionally, I enhanced
+          the ReactJS application to improve user interaction and ensure seamless
+          integration with the new backend services.
+        </ProjectCard>
       </div>
     </Section>
   </div>

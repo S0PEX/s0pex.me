@@ -5,7 +5,7 @@ import { Image } from 'astro:assets'
 import { cn } from '@/utils'
 
 const {
-  as: Tag = 'a',
+  as: Tag = 'div',
   class: className,
   href,
   heading,
@@ -16,7 +16,7 @@ const {
 const images = import.meta.glob<{ default: ImageMetadata }>(
   '/src/assets/images/*.{jpeg,jpg,png,gif}',
 )
-if (!images[imagePath])
+if (!images[imagePath] && imagePath)
   throw new Error(
     `"${imagePath}" does not exist in glob: "src/assets/images/*.{jpeg,jpg,png,gif}"`,
   )
@@ -25,21 +25,23 @@ if (!images[imagePath])
 <Tag
   class={cn(
     className,
-    'flex flex-col gap-y-3 rounded-2xl border border-border bg-primary-foreground ',
+    'gap-y-3 rounded-2xl border border-border bg-primary-foreground ',
     href && 'transition-all hover:border-foreground/25 hover:shadow-sm',
   )}
   href={href}
 >
-  <Image
-    src={images[imagePath]()}
-    alt={altText}
-    class="h-48 w-full rounded-2xl rounded-b-none object-cover"
-    loading="eager"
-  />
+  {
+    imagePath && (
+      <Image
+        src={images[imagePath]()}
+        alt={altText}
+        class="h-48 rounded-2xl rounded-b-none object-cover"
+        loading="eager"
+      />
+    )
+  }
   <div class="flex flex-col gap-y-0.5 px-5 py-4">
     <h1 class="text-lg font-medium">{heading}</h1>
-    <h2 class="text-muted-foreground">{subheading}</h2>
+    <h2 class="text-muted-foreground"><slot /></h2>
   </div>
-
-  <slot />
 </Tag>
