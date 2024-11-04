@@ -21,7 +21,9 @@
     "pages",
     "deps",
     "public",
-    "consts"
+    "consts",
+    "partials",
+    "vscode"
   ],
   "editor.codeActionsOnSave": {
     "source.organizeImports": "explicit"
