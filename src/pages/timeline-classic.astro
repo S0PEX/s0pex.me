@@ -1,0 +1,182 @@
+---
+import Section from '@/components/ui/Section.astro'
+import TimelineCard from '@/components/ui/TimelineCard.astro'
+import Base from '@/layouts/Base.astro'
+import Hero from '@/partials/Hero.astro'
+---
+
+<Base title="Timeline">
+  <Hero />
+
+  <Section title="Experience">
+    <TimelineCard
+      company="Infolytics AG"
+      title="Software Developer"
+      date="Since October 2022"
+      altText="Infolytics AG"
+    >
+      <ul class="ml-4 list-disc text-muted-foreground">
+        <li>
+          Promoted to Software Developer in the same domain with expanded
+          responsibilities
+        </li>
+        <li>
+          Provisioning of virtual machines (Ubuntu, CentOS, AlmaLinux) using
+          Proxmox VE and Ansible
+        </li>
+        <li>
+          Development and maintenance of CI/CD pipelines based on GitLab CI and
+          GitHub Actions
+        </li>
+        <li>Support for trainees with questions and issues</li>
+        <li>
+          Preparation of presentations addressing trainee inquiries and
+          challenges
+        </li>
+      </ul>
+    </TimelineCard>
+
+    <TimelineCard
+      company="Infolytics AG"
+      title="Working Student in Application Development"
+      date="October 2018 - September 2022"
+      altText="Infolytics AG"
+    >
+      <ul class="ml-4 list-disc text-muted-foreground">
+        <li>Working student in application development</li>
+        <li>Development of RESTful services using Spring Boot</li>
+        <li>Creation of web interfaces with Angular, ReactJS, and Next.js</li>
+        <li>
+          Maintenance of the Signal Data Platform (SDF) as part of the DFWind
+          project (C++, Boost, unixODBC)
+        </li>
+      </ul>
+    </TimelineCard>
+  </Section>
+
+  <Section title="Internships">
+    <TimelineCard
+      company="Fraunhofer IPT"
+      title="Bachelor Thesis"
+      date="March 2022 - November 2022"
+      altText="Fraunhofer IPT"
+    >
+      <ul class="ml-4 list-disc text-muted-foreground">
+        <li>Bachelor thesis as part of the AIxCell project</li>
+        <li>Migration of an existing AutoML pipeline to the cloud (K8s)</li>
+        <li>
+          Design and implementation of a cloud-based backend for executing
+          AutoML pipelines
+        </li>
+        <li>Development of a RESTful service using NestJS</li>
+        <li>Enhancement of a Single Page Application (ReactJS)</li>
+        <li>
+          Technologies: TypeScript, NestJS, Python, Podman, Argo, Oracle OKE
+        </li>
+      </ul>
+    </TimelineCard>
+
+    <TimelineCard
+      company="Infolytics AG"
+      title="Internship"
+      date="July 2018 - September 2018"
+      altText="Infolytics AG"
+    >
+      <ul class="ml-4 list-disc text-muted-foreground">
+        <li>
+          Internship as part of the training for Information Technology
+          Assistant
+        </li>
+        <li>
+          Implementation of a Java library (DFWind-specific network protocol
+          based on TCP)
+        </li>
+        <li>Development of a RESTful service using Spring Boot</li>
+        <li>
+          Programming a microcontroller to simulate a measuring station in the
+          DFWind project
+        </li>
+      </ul>
+    </TimelineCard>
+
+    <TimelineCard
+      company="Erasmus Internship in Marseille, France"
+      title="International Internship"
+      date="April 2017"
+      altText="Erasmus Internship in Marseille"
+    >
+      <ul class="ml-4 list-disc text-muted-foreground">
+        <li>
+          Erasmus internship as part of the training for Information Technology
+          Assistant
+        </li>
+        <li>Soldering of SMD components</li>
+        <li>Provisioning of computers for customer orders</li>
+      </ul>
+    </TimelineCard>
+  </Section>
+
+  <Section title="Education">
+    <TimelineCard
+      company="University of Cologne"
+      title="Master of Science in Computer Science"
+      date="Since April 2023"
+      altText="University of Cologne"
+    >
+      <ul class="ml-4 list-disc text-muted-foreground">
+        <li>Focus Area: Development of Software-Intensive Systems</li>
+        <li>
+          Supplementary Area: Scientific Computing and High-Performance
+          Computing
+        </li>
+      </ul>
+    </TimelineCard>
+
+    <TimelineCard
+      company="RWTH Aachen University"
+      title="Bachelor of Science in Computer Science"
+      date="October 2018 - September 2022"
+      altText="RWTH Aachen University"
+    >
+      <ul class="ml-4 list-disc text-muted-foreground">
+        <li>
+          Thesis: Development and Deployment of a Cloud-Based System
+          Architecture for Domain-Specific AutoML Systems
+        </li>
+      </ul>
+    </TimelineCard>
+
+    <TimelineCard
+      company="Georg-Simon-Ohm-Berufskolleg"
+      title="Information Technology Assistant"
+      date="August 2015 - November 2018"
+      altText="Georg-Simon-Ohm-Berufskolleg"
+    >
+      <ul class="ml-4 list-disc text-muted-foreground">
+        <li>
+          Education as an Information Technology Assistant, including General
+          University Entrance Qualification
+        </li>
+        <li>Programming with C# and .NET</li>
+        <li>Project-based and action-oriented instruction</li>
+        <li>Design and configuration of computer networks</li>
+        <li>Modeling and management of SQL databases</li>
+      </ul>
+    </TimelineCard>
+
+    <TimelineCard
+      company="Georg-Simon-Ohm-Berufskolleg"
+      title="General University Entrance Qualification"
+      date="August 2015 - June 2018"
+      altText="Georg-Simon-Ohm-Berufskolleg"
+    >
+      <ul class="ml-4 list-disc text-muted-foreground">
+        <li>Major subjects: Mathematics and Technical Computer Science</li>
+        <li>Acquired skills in problem-solving and analytical thinking</li>
+        <li>
+          Participated in various technical projects and team collaborations
+        </li>
+      </ul>
+    </TimelineCard>
+  </Section>
+</Base>
