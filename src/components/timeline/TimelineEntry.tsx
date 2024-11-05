@@ -25,23 +25,21 @@ const TimelineEntry = ({
 }: Props) => (
   <li className="mb-10 ms-4">
     <TimelineDot />
-    <time className="mb-1 text-sm font-normal leading-none text-gray-500 dark:text-gray-500">
+    <time className="text-sm font-normal leading-none text-gray-500 dark:text-gray-500">
       {getDate(dateFrom, dateTo)}
     </time>
-    <h3
-      className={cn(
-        'text-lg mb-1 font-semibold text-gray-900 dark:text-white',
-        subTitle ? 'mb-1' : '',
+
+    <div className="flex flex-col justify-between p-3 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:bg-gray-700 dark:border-gray-600">
+      <h3 className={cn('text-lg font-semibold text-gray-900 dark:text-white')}>
+        {title}
+      </h3>
+      {subTitle && (
+        <p className="block text-sm font-normal leading-none text-gray-500 dark:text-gray-500">
+          {subTitle}
+        </p>
       )}
-    >
-      {title}
-    </h3>
-    {subTitle && (
-      <p className="block text-sm font-normal leading-none text-gray-500 dark:text-gray-500">
-        {subTitle}
-      </p>
-    )}
-    <p className="mb-4 text-base font-normal">{children}</p>
+      <p className="mb-4 text-base font-normal">{children}</p>
+    </div>
   </li>
 )
 
