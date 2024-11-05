@@ -81,21 +81,28 @@ const others = [
   <Section title="Projects">
     <div class="flex w-full flex-col gap-y-4">
       <ProjectCard heading="Data Warehouse Frontend - Commercial Project">
-        Participated in migrating a C# desktop application to a web-based
-        platform, using Angular 18 for the frontend and Spring Boot for the
-        backend. Developed reusable components and migrated legacy data entry
-        forms to the new platform, implementing backend endpoints to support
-        these forms. Leveraged Angular Material for responsive design and
-        employed NgRx Component Store for efficient state management.
-        Additionally, contributed to deploying the frontend on Azure Kubernetes
-        Service (AKS) with Helm, ensuring a smooth rollout process.
+        Contributed to the migration of a Data Warehouse C# desktop application
+        to a web-based platform. The frontend was developed using Angular 18,
+        incorporating Material UI and NgRx. The backend was designed as a
+        microservices architecture, utilizing Spring Boot, Hibernate, and Solr,
+        with authentication based on Active Directory (AD). I developed reusable
+        UI components and transitioned workflows along with their associated
+        masks to the new platform, including the necessary backend endpoints.
+        Additionally, I contributed to the deployment of the frontend on <Link
+          href="https://azure.microsoft.com/en-us/products/kubernetes-service"
+          >Azure Kubernetes Service (AKS)</Link
+        > using Helm.
         <ProjectSkills
           slot="tags"
           skills={[
             'Angular 18',
-            'Spring Boot',
             'Material UI',
             'NgRx',
+            'Spring Boot',
+            'Hibernate',
+            'Solr',
+            'Microservices Architecture',
+            'Active Directory (AD)',
             'Azure Kubernetes Service (AKS)',
             'Helm',
           ]}
@@ -121,7 +128,7 @@ const others = [
         as the frontend using jQuery, enabling real-time data access, aggregation
         storage, and data export for analytical purposes. Since completing my bachelor's
         degree, I have been the primary person handling all feature requests and
-        bug fixes, as the project is now in maintenance mode.
+        bug fixes!
         <ProjectSkills
           slot="tags"
           skills={[
@@ -136,32 +143,42 @@ const others = [
           ]}
         />
       </ProjectCard>
-      <ProjectCard heading="AIxCell Project - Fraunhofer IPT">
-        Bachelor's Thesis: Migrated an existing AutoML pipeline from{' '}
-        <Link href="https://www.ipt.fraunhofer.de/">Fraunhofer IPT</Link> to
-        <Link href="https://www.oracle.com/cloud/">
-          Oracle Cloud Infrastructure (OCI)
-        </Link>{' '}
-        to a fully managed Kubernetes cluster {' '}
-        <Link
-          href="https://www.oracle.com/cloud/cloud-native/kubernetes-engine/"
-        >
-          "Container Engine for Kubernetes" (OKE)
-        </Link>. This project focused on automating the analysis of biomedical
-        image data, allowing experts to efficiently train and deploy deep
-        learning (DL) solutions. I created a custom solution for executing
-        AutoML pipelines within Kubernetes clusters and developed RESTful
-        services using NestJS. Additionally, I enhanced the ReactJS application
-        to improve user interaction and ensure seamless integration with the new
-        backend services.
-
+      <ProjectCard
+        heading="Bachelor's Thesis: AIxCell Project - Fraunhofer IPT"
+      >
+        <p>
+          Successfully migrated an existing AutoML pipeline from the <Link
+            href="https://www.ipt.fraunhofer.de/en/projects/aixcell.html"
+            >AIxCell project</Link
+          > led by the <Link href="https://www.ipt.fraunhofer.de/"
+            >Fraunhofer IPT</Link
+          > to the <Link href="https://www.oracle.com/cloud/"
+            >Oracle Cloud Infrastructure (OCI)</Link
+          >, specifically utilizing their fully managed Kubernetes cluster
+          service <Link
+            href="https://www.oracle.com/cloud/cloud-native/kubernetes-engine/"
+            >"Container Engine for Kubernetes" (OKE)</Link
+          >. My primary task involved analyzing their local setup and migrating
+          it to Kubernetes, enabling the execution of machine learning pipelines
+          as tasks on suitable hardware while developing the surrounding
+          business processes.
+        </p>
+        <p>
+          I added the functionality of image upload and integrated image
+          annotation through Label Studio into their existing React application.
+          Additionally, I developed a RESTful service that managed the execution
+          of the AutoML pipeline on the cluster and reported results back to the
+          frontend, where users could verify the outcomes.
+        </p>
         <ProjectSkills
           slot="tags"
           skills={[
             'AutoML',
-            'Oracle Cloud (OCI)',
+            'Oracle Cloud Infrastructure (OCI)',
             'Kubernetes (K8S)',
+            'MinIO',
             'Oracle Kubernetes Engine (OKE)',
+            'Label Studio',
             'NestJS',
             'ReactJS',
             'TypeScript',
