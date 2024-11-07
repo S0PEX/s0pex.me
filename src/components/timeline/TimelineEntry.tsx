@@ -29,7 +29,7 @@ const TimelineEntry = ({
       {getDate(dateFrom, dateTo)}
     </time>
 
-    <div className="flex flex-col justify-between p-3 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:bg-gray-700 dark:border-gray-600">
+    <div className="flex flex-col justify-between p-3 border rounded-lg shadow-sm sm:flex bg-primary-foreground">
       <h3
         className={cn(
           'text-lg font-semibold text-gray-900 dark:text-white',
