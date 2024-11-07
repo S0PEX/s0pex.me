@@ -39,7 +39,7 @@ const TimelineEntry = ({
         {title}
       </h3>
       {subTitle && (
-        <p className="block text-sm font-normal leading-none text-gray-500 dark:text-gray-500">
+        <p className="font-normal leading-none text-gray-500 dark:text-gray-500">
           {subTitle}
         </p>
       )}
