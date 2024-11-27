@@ -23,7 +23,8 @@
     "public",
     "consts",
     "partials",
-    "vscode"
+    "vscode",
+    "package"
   ],
   "editor.codeActionsOnSave": {
     "source.organizeImports": "explicit"
