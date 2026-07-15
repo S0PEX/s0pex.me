@@ -1,9 +1,13 @@
 ---
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+
 const today = new Date()
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 ---
 
 <footer class="flex justify-center">
-  &copy; {today.getFullYear()} Artur Komaristych. All rights reserved.
+  &copy; {today.getFullYear()} Artur Komaristych. {t('footer.rights')}
 </footer>
 <style>
   footer {

@@ -1,0 +1,47 @@
+---
+import { Link } from '@/components/ui/Link'
+import Section from '@/components/ui/Section.astro'
+import SkillLayout from '@/components/ui/SkillLayout.astro'
+import Base from '@/layouts/Base.astro'
+import Hero from '@/partials/Hero.astro'
+import ProjectsSection from './ProjectsSection.astro'
+import { languages, frontend, backend, cloud, containers, others } from '@/i18n/content/skills'
+import { useTranslations } from '@/i18n/utils'
+
+const t = useTranslations('en')
+---
+
+<Base title="Home">
+  <Hero />
+
+  <Section title={t('section.about')}>
+    <p class="text-muted-foreground text-justify">
+      I'm a software developer based in Cologne, currently at <Link
+        href="https://infolytics.com/">Infolytics AG</Link
+      >. I hold a bachelor's degree from <Link
+        href="https://www.rwth-aachen.de/cms/root/studium/vor-dem-studium/studiengaenge/liste-aktuelle-studiengaenge/studiengangbeschreibung/~bnzs/informatik-b-sc-/?lidx=1"
+        >RWTH Aachen</Link
+      > and a master's degree from the <Link
+        href="https://cs.uni-koeln.de/en/lehre-studium/msc-informatik"
+        >University of Cologne</Link
+      >, both in computer science, and graduated with honors. I enjoy
+      programming and running a home lab — self-hosting services and learning
+      new technologies. Outside of work, I like to travel and dive on
+      holidays, and in my free time you'll usually find me cooking (pizza being a
+      particular favorite), playing badminton, or bouldering.
+    </p>
+  </Section>
+
+  <Section title={t('section.skills')}>
+    <SkillLayout title="Languages" skills={languages} />
+    <SkillLayout title="Frontend" skills={frontend} />
+    <SkillLayout title="Backend" skills={backend} />
+    <SkillLayout title="Cloud Providers" skills={cloud} />
+    <SkillLayout title="Containers and Infrastructure" skills={containers} />
+    <SkillLayout title="Others Technologies" skills={others} />
+  </Section>
+
+  <Section title={t('section.projects')}>
+    <ProjectsSection lang="en" />
+  </Section>
+</Base>

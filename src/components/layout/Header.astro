@@ -1,7 +1,16 @@
 ---
 import { Icon } from 'astro-icon/components'
+import { getRelativeLocaleUrl } from 'astro:i18n'
 
 import HeaderLink from './HeaderLink.astro'
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+const otherLang = lang === 'en' ? 'de' : 'en'
+
+const restOfPath = Astro.url.pathname.split('/').slice(2).join('/')
+const otherLangHref = getRelativeLocaleUrl(otherLang, restOfPath)
 ---
 
 <header
@@ -13,13 +22,27 @@ import HeaderLink from './HeaderLink.astro'
   >
     <a
       class="flex-none text-xl font-semibold"
-      href="/"
+      href={getRelativeLocaleUrl(lang, '')}
       aria-label="Artur Komaristych">Artur Komaristych</a
     >
 
     <div class="flex flex-row items-center justify-center gap-x-5 sm:gap-x-7">
-      <HeaderLink href="/" aria-label="Home">Home</HeaderLink>
-      <HeaderLink href="/timeline" aria-label="Timeline">Timeline</HeaderLink>
+      <HeaderLink href={getRelativeLocaleUrl(lang, '')} aria-label={t('nav.home')}
+        >{t('nav.home')}</HeaderLink
+      >
+      <HeaderLink
+        href={getRelativeLocaleUrl(lang, 'timeline')}
+        aria-label={t('nav.timeline')}>{t('nav.timeline')}</HeaderLink
+      >
+
+      <a
+        href={otherLangHref}
+        id="langSwitch"
+        data-lang={otherLang}
+        aria-label={t('switcher.label')}
+        class="relative rounded-md border border-border px-2 py-1.5 text-xs font-semibold uppercase transition-all hover:bg-border"
+        >{otherLang}</a
+      >
 
       <button
         id="toggleDarkMode"
@@ -64,5 +87,12 @@ import HeaderLink from './HeaderLink.astro'
       detail: { theme: getCurrentTheme() === 'light' ? 'dark' : 'light' },
     })
     document.dispatchEvent(toggleDarkModeEvent)
+  })
+
+  const langSwitchLink = document.getElementById('langSwitch')
+  langSwitchLink?.addEventListener('click', (event) => {
+    const target = event.currentTarget as HTMLElement
+    const nextLang = target.dataset.lang
+    if (nextLang) localStorage.setItem('preferred-locale', nextLang)
   })
 </script>

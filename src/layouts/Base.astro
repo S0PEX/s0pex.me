@@ -4,17 +4,22 @@ import Header from '@/components/layout/Header.astro'
 
 import Footer from '@/components/layout/Footer.astro'
 import ThemeProvider from '@/components/layout/ThemeProvider.astro'
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts'
+import { SITE_TITLE } from '../consts'
+import { getLangFromUrl } from '@/i18n/utils'
+import { content as contentEn } from '@/i18n/content/en'
+import { content as contentDe } from '@/i18n/content/de'
 
 const { title } = Astro.props
+const lang = getLangFromUrl(Astro.url)
+const content = lang === 'de' ? contentDe : contentEn
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <BaseHead
       title={`${title} - ${SITE_TITLE}`}
-      description={SITE_DESCRIPTION}
+      description={content.meta.description}
     />
   </head>
   <body class="flex justify-center bg-background">

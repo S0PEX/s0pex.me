@@ -1,0 +1,43 @@
+---
+import ProjectEntry from '@/components/ui/ProjectEntry.astro'
+import { useTranslations, type Locale } from '@/i18n/utils'
+import { content as contentEn } from '@/i18n/content/en'
+import { content as contentDe } from '@/i18n/content/de'
+
+interface Props {
+  lang: Locale
+}
+
+const { lang } = Astro.props
+const t = useTranslations(lang)
+const content = lang === 'de' ? contentDe : contentEn
+const moreLabel = t('project.moreDetails')
+---
+
+<div class="flex flex-col gap-y-6">
+  <div class="flex flex-col gap-y-3">
+    <h3 class="text-base font-semibold text-muted-foreground">
+      {t('section.projects.commercial')}
+    </h3>
+    <div class="flex flex-col gap-y-3">
+      {
+        content.projects.commercial.map((entry) => (
+          <ProjectEntry entry={entry} lang={lang} moreLabel={moreLabel} />
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="flex flex-col gap-y-3">
+    <h3 class="text-base font-semibold text-muted-foreground">
+      {t('section.projects.nonCommercial')}
+    </h3>
+    <div class="flex flex-col gap-y-3">
+      {
+        content.projects.nonCommercial.map((entry) => (
+          <ProjectEntry entry={entry} lang={lang} moreLabel={moreLabel} />
+        ))
+      }
+    </div>
+  </div>
+</div>

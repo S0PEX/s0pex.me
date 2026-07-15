@@ -1,0 +1,47 @@
+---
+import { Link } from '@/components/ui/Link'
+import Section from '@/components/ui/Section.astro'
+import SkillLayout from '@/components/ui/SkillLayout.astro'
+import Base from '@/layouts/Base.astro'
+import Hero from '@/partials/Hero.astro'
+import ProjectsSection from './ProjectsSection.astro'
+import { languages, frontend, backend, cloud, containers, others } from '@/i18n/content/skills'
+import { useTranslations } from '@/i18n/utils'
+
+const t = useTranslations('de')
+---
+
+<Base title="Home">
+  <Hero />
+
+  <Section title={t('section.about')}>
+    <p class="text-muted-foreground text-justify">
+      Ich bin Softwareentwickler aus Köln, aktuell bei <Link
+        href="https://infolytics.com/">Infolytics AG</Link
+      >. Meinen Bachelor habe ich an der <Link
+        href="https://www.rwth-aachen.de/cms/root/studium/vor-dem-studium/studiengaenge/liste-aktuelle-studiengaenge/studiengangbeschreibung/~bnzs/informatik-b-sc-/?lidx=1"
+        >RWTH Aachen</Link
+      > und meinen Master an der <Link
+        href="https://cs.uni-koeln.de/en/lehre-studium/msc-informatik"
+        >Universität zu Köln</Link
+      > abgeschlossen, beide in Informatik, mit Auszeichnung. Ich programmiere
+      gerne und betreibe ein Homelab — ich hoste eigene Services selbst und
+      probiere gerne neue Technologien aus. Neben der Arbeit reise und tauche
+      ich gerne im Urlaub, und in meiner Freizeit findet man mich meist beim
+      Kochen (Pizza ist ein Favorit), beim Badminton oder beim Bouldern.
+    </p>
+  </Section>
+
+  <Section title={t('section.skills')}>
+    <SkillLayout title="Sprachen" skills={languages} />
+    <SkillLayout title="Frontend" skills={frontend} />
+    <SkillLayout title="Backend" skills={backend} />
+    <SkillLayout title="Cloud-Anbieter" skills={cloud} />
+    <SkillLayout title="Container und Infrastruktur" skills={containers} />
+    <SkillLayout title="Weitere Technologien" skills={others} />
+  </Section>
+
+  <Section title={t('section.projects')}>
+    <ProjectsSection lang="de" />
+  </Section>
+</Base>

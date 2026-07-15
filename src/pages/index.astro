@@ -1,191 +1,37 @@
 ---
-import { Link } from '@/components/ui/Link'
-import ProjectCard from '@/components/ui/ProjectCard.astro'
-import ProjectSkills from '@/components/ui/ProjectSkills.astro'
-import Section from '@/components/ui/Section.astro'
-import SkillLayout from '@/components/ui/SkillLayout.astro'
-import Base from '@/layouts/Base.astro'
-import Hero from '@/partials/Hero.astro'
-
-const languages = ['C++', 'C#', 'Java', 'Python', 'JavaScript', 'TypeScript']
-const frontend = ['Angular', 'React', 'Svelte']
-const backend = [
-  'Boost',
-  'unixODBC',
-  'ASP.NET',
-  'Entity Framework',
-  'Spring Boot',
-  'Hibernate',
-  'NestJS',
-]
-const cloud = ['Oracle Cloud', 'Google Compute Engine']
-const containers = [
-  'Docker',
-  'Podman',
-  'Portainer',
-  'Kubernetes',
-  'Proxmox VE',
-  'Helm',
-  'Ansible',
-  'Terraform',
-]
-const others = [
-  'GitLab',
-  'GitHub',
-  'Bitbucket',
-  'GitLab CI',
-  'GitHub Actions',
-  'Jira',
-  'Confluence',
-  'Artifactory',
-  'Gradle',
-  'CMake',
-  'vcpkg',
-]
+import '@/styles/global.css'
 ---
 
-<Base title="Home">
-  <Hero />
-
-  <Section title="About">
-    <p class="text-muted-foreground text-justify">
-      Welcome to my personal homepage! I’m a passionate software developer with
-      a love for coding that began in my childhood, when I first explored Visual
-      Basic .NET. This early fascination led me to focus on computer science
-      throughout my studies. After completing my bachelor’s in computer science
-      at <Link
-        href="https://www.rwth-aachen.de/cms/root/studium/vor-dem-studium/studiengaenge/liste-aktuelle-studiengaenge/studiengangbeschreibung/~bnzs/informatik-b-sc-/?lidx=1"
-        >RWTH Aachen</Link
-      >, I’m now pursuing my master’s at the <Link
-        href="https://cs.uni-koeln.de/en/lehre-studium/msc-informatik"
-        >University of Cologne</Link
-      >. My main interests lie in backend development, distributed systems, and
-      DevOps, with a special focus on Infrastructure as Code (IaC). Currently,
-      I’m applying these skills at <Link href="https://infolytics.com/"
-        >Infolytics AG</Link
-      >. When I’m not coding, you’ll find me on the badminton court, bouldering,
-      or climbing. Explore my timeline to learn more about my journey and
-      experience!
-    </p>
-  </Section>
-
-  <Section title="Skills">
-    <SkillLayout title="Languages" skills={languages} />
-    <SkillLayout title="Frontend" skills={frontend} />
-    <SkillLayout title="Backend" skills={backend} />
-    <SkillLayout title="Cloud Providers" skills={cloud} />
-    <SkillLayout title="Containers and Infrastructure" skills={containers} />
-    <SkillLayout title="Others Technologies" skills={others} />
-  </Section>
-
-  <Section title="Projects">
-    <div class="flex w-full flex-col gap-y-4">
-      <ProjectCard heading="Data Warehouse Frontend - Commercial Project">
-        Contributed to the migration of a Data Warehouse C# desktop application
-        to a web-based platform. The frontend was developed using Angular 18,
-        incorporating Material UI and NgRx. The backend was designed as a
-        microservices architecture, utilizing Spring Boot, Hibernate, and Solr,
-        with authentication based on Active Directory (AD). I developed reusable
-        UI components and transitioned workflows along with their associated
-        masks to the new platform, including the necessary backend endpoints.
-        Additionally, I contributed to the deployment of the frontend on <Link
-          href="https://azure.microsoft.com/en-us/products/kubernetes-service"
-          >Azure Kubernetes Service (AKS)</Link
-        > using Helm.
-        <ProjectSkills
-          slot="tags"
-          skills={[
-            'Angular 18',
-            'Material UI',
-            'NgRx',
-            'Spring Boot',
-            'Hibernate',
-            'Solr',
-            'Microservices Architecture',
-            'Active Directory (AD)',
-            'Azure Kubernetes Service (AKS)',
-            'Helm',
-          ]}
-        />
-      </ProjectCard>
-      <ProjectCard heading="Signal Data Platform (SDP) - Commercial Project">
-        Since joining <Link href="https://infolytics.com/">Infolytics AG</Link>{
-          ' '
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Artur Komaristych</title>
+    <meta http-equiv="refresh" content="0; url=/en/" />
+  </head>
+  <body>
+    <script is:inline>
+      ;(function () {
+        var STORAGE_KEY = 'preferred-locale'
+        var SUPPORTED = ['en', 'de']
+        var stored = localStorage.getItem(STORAGE_KEY)
+        var target = stored && SUPPORTED.indexOf(stored) !== -1 ? stored : null
+        if (!target) {
+          var browserLangs = navigator.languages || [navigator.language || 'en']
+          for (var i = 0; i < browserLangs.length; i++) {
+            var code = browserLangs[i].slice(0, 2).toLowerCase()
+            if (SUPPORTED.indexOf(code) !== -1) {
+              target = code
+              break
+            }
+          }
+          target = target || 'en'
         }
-        in 2018, I have worked on the Signal Data Platform (SDP), an IoT solution
-        for managing high-volume sensor data. This project is developed in collaboration
-        with the{' '}
-        <Link
-          href="https://www.dlr.de/en/dlr/locations-and-offices/braunschweig"
-        >
-          German Aerospace Center (DLR)
-        </Link>{' '}
-        for the{' '}
-        <Link href="https://www.forschungsverbund-windenergie.de/en">
-          Deutsche Forschungsplattform für Windenergie (DFWIND)
-        </Link>{' '}
-        research project. I contributed to both the C++ and Java backend as well
-        as the frontend using jQuery, enabling real-time data access, aggregation
-        storage, and data export for analytical purposes. Since completing my bachelor's
-        degree, I have been the primary person handling all feature requests and
-        bug fixes!
-        <ProjectSkills
-          slot="tags"
-          skills={[
-            'C++',
-            'Boost',
-            'Boost.Asio',
-            'unixODBC',
-            'Java',
-            'JAX-RS',
-            'jQuery',
-            'IoT',
-          ]}
-        />
-      </ProjectCard>
-      <ProjectCard
-        heading="Bachelor's Thesis: AIxCell Project - Fraunhofer IPT"
-      >
-        <p>
-          Successfully migrated an existing AutoML pipeline from the <Link
-            href="https://www.ipt.fraunhofer.de/en/projects/aixcell.html"
-            >AIxCell project</Link
-          > led by the <Link href="https://www.ipt.fraunhofer.de/"
-            >Fraunhofer IPT</Link
-          > to the <Link href="https://www.oracle.com/cloud/"
-            >Oracle Cloud Infrastructure (OCI)</Link
-          >, specifically utilizing their fully managed Kubernetes cluster
-          service <Link
-            href="https://www.oracle.com/cloud/cloud-native/kubernetes-engine/"
-            >"Container Engine for Kubernetes" (OKE)</Link
-          >. My primary task involved analyzing their local setup and migrating
-          it to Kubernetes, enabling the execution of machine learning pipelines
-          as tasks on suitable hardware while developing the surrounding
-          business processes.
-        </p>
-        <p>
-          I added the functionality of image upload and integrated image
-          annotation through Label Studio into their existing React application.
-          Additionally, I developed a RESTful service that managed the execution
-          of the AutoML pipeline on the cluster and reported results back to the
-          frontend, where users could verify the outcomes.
-        </p>
-        <ProjectSkills
-          slot="tags"
-          skills={[
-            'AutoML',
-            'Oracle Cloud Infrastructure (OCI)',
-            'Kubernetes (K8S)',
-            'MinIO',
-            'Oracle Kubernetes Engine (OKE)',
-            'Label Studio',
-            'NestJS',
-            'ReactJS',
-            'TypeScript',
-            'RESTful Services',
-          ]}
-        />
-      </ProjectCard>
-    </div>
-  </Section>
-</Base>
+        localStorage.setItem(STORAGE_KEY, target)
+        window.location.replace('/' + target + '/')
+      })()
+    </script>
+    <noscript><a href="/en/">Continue to site</a></noscript>
+  </body>
+</html>

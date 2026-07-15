@@ -1,0 +1,42 @@
+---
+import { Icon } from 'astro-icon/components'
+import { getRelativeLocaleUrl } from 'astro:i18n'
+import { cn } from '@/utils'
+import type { Locale } from '@/i18n/utils'
+import type { TimelineBullet } from '@/i18n/content/types'
+
+interface Props {
+  bullets: TimelineBullet[]
+  lang: Locale
+  class?: string
+}
+
+const { bullets, lang, class: className } = Astro.props
+---
+
+<ul class={cn('ml-4 list-disc text-muted-foreground', className)}>
+  {
+    bullets.map((bullet) => (
+      <li>
+        {bullet.map((part) => {
+          if (part.link) {
+            return (
+              <a
+                href={`${getRelativeLocaleUrl(lang, '')}#${part.link}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="underline decoration-dotted underline-offset-2 hover:text-foreground"
+              >
+                {part.text}
+                <Icon name="mdi:open-in-new" size={12} class="inline-block align-middle" />
+              </a>
+            )
+          }
+          if (part.strong) return <strong>{part.text}</strong>
+          if (part.italic) return <em>{part.text}</em>
+          return part.text
+        })}
+      </li>
+    ))
+  }
+</ul>

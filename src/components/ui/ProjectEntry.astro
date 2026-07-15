@@ -1,0 +1,83 @@
+---
+import { Icon } from 'astro-icon/components'
+import BulletList from '@/components/ui/BulletList.astro'
+import ProjectSkills from '@/components/ui/ProjectSkills.astro'
+import type { Locale } from '@/i18n/utils'
+import type { ProjectEntryContent } from '@/i18n/content/types'
+
+interface Props {
+  entry: ProjectEntryContent
+  lang: Locale
+  moreLabel: string
+}
+
+const { entry, lang, moreLabel } = Astro.props
+
+function getDateRange(dateFrom: string, dateTo?: string) {
+  return dateTo ? `${dateFrom} - ${dateTo}` : dateFrom
+}
+---
+
+<div
+  id={entry.slug}
+  class="flex scroll-mt-4 flex-col gap-y-2 rounded-lg border bg-primary-foreground p-3 shadow-sm [&:target]:ring-2 [&:target]:ring-primary [&:target]:ring-offset-2 [&:target]:ring-offset-background"
+>
+  <div class="flex flex-col gap-y-0.5">
+    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+      {entry.heading}
+    </h3>
+    {
+      entry.subTitle && (
+        <p class="font-normal leading-none text-gray-500 dark:text-gray-500">
+          {entry.subTitle}
+        </p>
+      )
+    }
+    <time class="text-sm font-normal leading-none text-gray-500 dark:text-gray-500">
+      {getDateRange(entry.dateFrom, entry.dateTo)}
+    </time>
+  </div>
+
+  <BulletList bullets={entry.bullets} lang={lang} />
+
+  <ProjectSkills skills={entry.skills} />
+
+  {
+    entry.details.length > 0 && (
+      <details class="group border-t border-border pt-2">
+        <summary class="flex list-none items-center gap-x-1 text-sm font-medium text-foreground/80 transition-colors [&::-webkit-details-marker]:hidden hover:text-foreground">
+          <Icon
+            name="mdi:chevron-right"
+            size={16}
+            class="transition-transform duration-200 group-open:rotate-90"
+          />
+          {moreLabel}
+        </summary>
+        <div class="mt-1.5 flex flex-col gap-y-1 pl-5 text-sm text-muted-foreground">
+          {entry.details.map((paragraph) => (
+            <p>{paragraph}</p>
+          ))}
+        </div>
+      </details>
+    )
+  }
+</div>
+
+<style>
+  div:target {
+    animation: target-pulse 1.6s ease-out;
+  }
+  @keyframes target-pulse {
+    0% {
+      box-shadow: 0 0 0 8px hsl(var(--primary) / 0.35);
+    }
+    100% {
+      box-shadow: 0 0 0 0 hsl(var(--primary) / 0);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    div:target {
+      animation: none;
+    }
+  }
+</style>

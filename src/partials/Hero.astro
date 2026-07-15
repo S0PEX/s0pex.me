@@ -5,6 +5,10 @@ import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
 
 import avatar from '@/assets/images/avatar.png'
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 ---
 
 <HeroSection>
@@ -33,11 +37,11 @@ import avatar from '@/assets/images/avatar.png'
     <Label title="Infolytics AG">
       <Icon slot="icon" name="mdi:work" size={20} />
     </Label>
-    <Label title="Cologne">
+    <Label title={t('hero.location')}>
       <Icon slot="icon" name="mdi:location" size={20} />
     </Label>
     <Label
-      title="Connect on LinkedIn"
+      title={t('hero.linkedin')}
       as="a"
       href="https://de.linkedin.com/in/artur-komaristych-89b623171"
       target="_blank"

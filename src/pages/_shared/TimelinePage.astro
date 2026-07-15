@@ -1,0 +1,74 @@
+---
+import { TimelineContainer } from '@/components/timeline/TimelineContainer'
+import { TimelineEntry } from '@/components/timeline/TimelineEntry'
+import BulletList from '@/components/ui/BulletList.astro'
+import Section from '@/components/ui/Section.astro'
+import Base from '@/layouts/Base.astro'
+import Hero from '@/partials/Hero.astro'
+import { useTranslations, type Locale } from '@/i18n/utils'
+import { content as contentEn } from '@/i18n/content/en'
+import { content as contentDe } from '@/i18n/content/de'
+
+interface Props {
+  lang: Locale
+}
+
+const { lang } = Astro.props
+const t = useTranslations(lang)
+const content = lang === 'de' ? contentDe : contentEn
+---
+
+<Base title="Timeline">
+  <Hero />
+
+  <Section title={t('section.experience')}>
+    <TimelineContainer>
+      {
+        content.timeline.experience.map((entry) => (
+          <TimelineEntry
+            title={entry.title}
+            subTitle={entry.subTitle}
+            dateFrom={entry.dateFrom}
+            dateTo={entry.dateTo}
+          >
+            <BulletList bullets={entry.bullets} lang={lang} />
+          </TimelineEntry>
+        ))
+      }
+    </TimelineContainer>
+  </Section>
+
+  <Section title={t('section.internships')}>
+    <TimelineContainer>
+      {
+        content.timeline.internships.map((entry) => (
+          <TimelineEntry
+            title={entry.title}
+            subTitle={entry.subTitle}
+            dateFrom={entry.dateFrom}
+            dateTo={entry.dateTo}
+          >
+            <BulletList bullets={entry.bullets} lang={lang} />
+          </TimelineEntry>
+        ))
+      }
+    </TimelineContainer>
+  </Section>
+
+  <Section title={t('section.education')}>
+    <TimelineContainer>
+      {
+        content.timeline.education.map((entry) => (
+          <TimelineEntry
+            title={entry.title}
+            subTitle={entry.subTitle}
+            dateFrom={entry.dateFrom}
+            dateTo={entry.dateTo}
+          >
+            <BulletList bullets={entry.bullets} lang={lang} />
+          </TimelineEntry>
+        ))
+      }
+    </TimelineContainer>
+  </Section>
+</Base>

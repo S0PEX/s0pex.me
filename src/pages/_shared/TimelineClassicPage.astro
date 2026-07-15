@@ -1,0 +1,71 @@
+---
+import BulletList from '@/components/ui/BulletList.astro'
+import Section from '@/components/ui/Section.astro'
+import TimelineCard from '@/components/ui/TimelineCard.astro'
+import Base from '@/layouts/Base.astro'
+import Hero from '@/partials/Hero.astro'
+import { useTranslations, type Locale } from '@/i18n/utils'
+import { content as contentEn } from '@/i18n/content/en'
+import { content as contentDe } from '@/i18n/content/de'
+
+interface Props {
+  lang: Locale
+}
+
+const { lang } = Astro.props
+const t = useTranslations(lang)
+const content = lang === 'de' ? contentDe : contentEn
+
+function getDateRange(dateFrom: string, dateTo?: string) {
+  return dateTo ? `${dateFrom} - ${dateTo}` : dateFrom
+}
+---
+
+<Base title="Timeline">
+  <Hero />
+
+  <Section title={t('section.experience')}>
+    {
+      content.timeline.experience.map((entry) => (
+        <TimelineCard
+          company={entry.subTitle}
+          title={entry.title}
+          date={getDateRange(entry.dateFrom, entry.dateTo)}
+          altText={entry.subTitle}
+        >
+          <BulletList bullets={entry.bullets} lang={lang} />
+        </TimelineCard>
+      ))
+    }
+  </Section>
+
+  <Section title={t('section.internships')}>
+    {
+      content.timeline.internships.map((entry) => (
+        <TimelineCard
+          company={entry.subTitle}
+          title={entry.title}
+          date={getDateRange(entry.dateFrom, entry.dateTo)}
+          altText={entry.subTitle}
+        >
+          <BulletList bullets={entry.bullets} lang={lang} />
+        </TimelineCard>
+      ))
+    }
+  </Section>
+
+  <Section title={t('section.education')}>
+    {
+      content.timeline.education.map((entry) => (
+        <TimelineCard
+          company={entry.subTitle}
+          title={entry.title}
+          date={getDateRange(entry.dateFrom, entry.dateTo)}
+          altText={entry.subTitle}
+        >
+          <BulletList bullets={entry.bullets} lang={lang} />
+        </TimelineCard>
+      ))
+    }
+  </Section>
+</Base>

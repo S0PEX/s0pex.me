@@ -15,11 +15,24 @@ import icon from 'astro-icon'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://s0pex.me',
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'de'],
+    routing: {
+      prefixDefaultLocale: true,
+      redirectToDefaultLocale: false,
+    },
+  },
   integrations: [
     tailwind(),
     react(),
     icon(),
-    sitemap(),
+    sitemap({
+      i18n: {
+        defaultLocale: 'en',
+        locales: { en: 'en', de: 'de' },
+      },
+    }),
     expressiveCode(),
     mdx(),
   ],
