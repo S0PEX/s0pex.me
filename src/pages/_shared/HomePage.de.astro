@@ -2,11 +2,18 @@
 import { Link } from '@/components/ui/Link'
 import Section from '@/components/ui/Section.astro'
 import SkillLayout from '@/components/ui/SkillLayout.astro'
+import {
+  backend,
+  cloud,
+  containers,
+  frontend,
+  languages,
+  others,
+} from '@/i18n/content/skills'
+import { useTranslations } from '@/i18n/utils'
 import Base from '@/layouts/Base.astro'
 import Hero from '@/partials/Hero.astro'
 import ProjectsSection from './ProjectsSection.astro'
-import { languages, frontend, backend, cloud, containers, others } from '@/i18n/content/skills'
-import { useTranslations } from '@/i18n/utils'
 
 const t = useTranslations('de')
 ---
@@ -16,20 +23,31 @@ const t = useTranslations('de')
 
   <Section title={t('section.about')}>
     <p class="text-muted-foreground text-justify">
-      Ich bin Softwareentwickler aus Köln, aktuell bei <Link
+      Ich bin Softwareentwickler aus Köln und arbeite aktuell bei der <Link
         href="https://infolytics.com/">Infolytics AG</Link
-      >. Meinen Bachelor habe ich an der <Link
+      >. Meinen Bachelor und Master in Informatik habe ich an der <Link
         href="https://www.rwth-aachen.de/cms/root/studium/vor-dem-studium/studiengaenge/liste-aktuelle-studiengaenge/studiengangbeschreibung/~bnzs/informatik-b-sc-/?lidx=1"
         >RWTH Aachen</Link
-      > und meinen Master an der <Link
+      > bzw. der <Link
         href="https://cs.uni-koeln.de/en/lehre-studium/msc-informatik"
         >Universität zu Köln</Link
-      > abgeschlossen, beide in Informatik, mit Auszeichnung. Ich programmiere
-      gerne und betreibe ein Homelab — ich hoste eigene Services selbst und
-      probiere gerne neue Technologien aus. Neben der Arbeit reise ich gerne und
-      gehe im Urlaub Gerätetauchen, und in meiner Freizeit findet man mich
-      meist beim Kochen (Pizza ist ein Favorit), beim Badminton oder beim
-      Bouldern.
+      > gemacht und den Master mit Auszeichnung abgeschlossen.
+    </p>
+    <p class="text-muted-foreground text-justify">
+      In meiner Freizeit bin ich gerne aktiv – meistens beim Badminton oder
+      Bouldern. Wann immer sich die Gelegenheit bietet, reise ich außerdem
+      gerne und gehe dabei auch tauchen.
+    </p>
+    <p class="text-muted-foreground text-justify">
+      Neben der Arbeit beschäftige ich mich auch privat gerne mit IT. Dabei
+      arbeite ich an eigenen Projekten – häufig in Sprachen wie Go oder Rust,
+      die ich im Berufsalltag seltener einsetze. Außerdem beschäftige ich mich
+      mit Self-Hosting und Homelabbing und probiere gerne neue Technologien
+      aus.
+    </p>
+    <p class="text-muted-foreground text-justify">
+      Und wenn ich mal nicht unterwegs oder am Rechner bin, koche ich gerne.
+      Am liebsten Pizza.
     </p>
   </Section>
 
